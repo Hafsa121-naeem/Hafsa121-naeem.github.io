@@ -1,354 +1,123 @@
 <!DOCTYPE html>
-<html lang="en" className="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hafsa Naeem - Aspiring IT Professional &amp; Frontend Developer. MBA in Finance with hands-on web development capabilities in React, Tailwind CSS, JavaScript, and Git.">
   <title>Hafsa Naeem | Personal Portfolio</title>
-  <link rel="icon" type="image/svg+xml" href="images/ui/portfolio-favicon.svg" />
-  <link rel="alternate icon" href="images/ui/portfolio-favicon.svg" />
-  <meta name="description" content="Hafsa Naeem | Personal Portfolio - Aspiring IT Professional & Frontend Developer with an MBA in Finance." />
-  <meta name="author" content="Hafsa Naeem" />
-
-  <!-- Single Font Family: Poppins (300 to 900) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet" />
-
+  
+  <link rel="icon" type="image/svg+xml" href="images/ui/portfolio-favicon.svg">
+  
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-            mono: ['Poppins', 'monospace'],
-          },
-          colors: {
-            brand: {
-              50: '#F8FAFC',
-              100: '#F1F5F9',
-              200: '#E2E8F0',
-              300: '#CBD5E1',
-              400: '#94A3B8',
-              500: '#64748B',
-              600: '#475569',
-              700: '#334155',
-              800: '#1E293B',
-              900: '#0F172A',
-            },
-            royal: {
-              500: '#3B82F6',
-              600: '#2563EB',
-              700: '#1D4ED8',
-            },
-            tealAccent: {
-              400: '#2DD4BF',
-              500: '#14B8A6',
-              600: '#0D9488',
-              700: '#0F766E',
-            }
-          },
-          animation: {
-            'float-subtle': 'floatSubtle 4.5s ease-in-out infinite',
-            'float-reverse': 'floatReverse 5s ease-in-out infinite',
-            'portrait-breathe': 'portraitBreathe 6s ease-in-out infinite',
-            'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-          },
-          keyframes: {
-            floatSubtle: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-            floatReverse: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(10px)' },
-            },
-            portraitBreathe: {
-              '0%, 100%': { transform: 'scale(1)' },
-              '50%': { transform: 'scale(1.02)' },
-            },
-            pulseGlow: {
-              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
-              '50%': { opacity: '0.75', transform: 'scale(1.08)' },
-            }
-          }
-        }
-      }
-    };
-  </script>
-
-  <!-- React 18 & ReactDOM & Babel Standalone -->
+  
+  <!-- React 18, ReactDOM, and Babel Standalone -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#F0FDFA',
+              100: '#CCFBF1',
+              500: '#14B8A6',
+              600: '#0D9488',
+              700: '#0F766E',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    *, *::before, *::after, html, body, button, input, select, textarea, code, pre, span, p, h1, h2, h3, h4, h5, h6 {
-      font-family: 'Poppins', sans-serif !important;
-    }
-
-    :root {
-      --backgroundColor: #F8FAFC;
-      --bgCard: #FFFFFF;
-      --accentTeal: #0D9488;
-      --accentBlue: #2563EB;
-      --textColor: #0F172A;
-      --textMuted: #64748B;
-    }
-
     body {
-      background-color: var(--backgroundColor);
-      color: var(--textColor);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #F8FAFC;
+      color: #0F172A;
       overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
-
-    #scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #0D9488, #2563EB, #7C3AED);
-      z-index: 100;
-      transition: width 0.1s linear;
-    }
-
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F1F5F9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #CBD5E1;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #94A3B8;
-    }
-
+    
     .glass-nav {
-      background: rgba(248, 250, 252, 0.9);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
     }
 
-    .dashed-card {
-      background: rgba(255, 255, 255, 0.95);
-      border: 1px dashed #CBD5E1;
-      position: relative;
-    }
-    .dark .dashed-card {
-      background: rgba(15, 23, 42, 0.95) !important;
-      border: 1px dashed #334155 !important;
-    }
-    .dashed-card:hover {
-      border-color: #0D9488;
-    }
-    .dark .dashed-card:hover {
-      border-color: #2DD4BF !important;
+    /* Ambient background grid */
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
     }
 
-    .bg-tech-dots {
-      background-image: radial-gradient(#CBD5E1 1px, transparent 1px);
-      background-size: 28px 28px;
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+    .animate-pulse-glow {
+      animation: pulseGlow 5s ease-in-out infinite;
     }
 
-    .glowing-orb {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(13, 148, 136, 0.5) 0%, rgba(37, 99, 235, 0.25) 50%, transparent 75%);
-      filter: blur(8px);
-      pointer-events: none;
-      transition: transform 0.15s ease-out;
-      z-index: 25;
+    @keyframes floatSubtle {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-float {
+      animation: floatSubtle 4s ease-in-out infinite;
+    }
+
+    @keyframes badgeSway {
+      0%, 100% { transform: rotate(0deg) translateY(0px); }
+      33% { transform: rotate(1.2deg) translateY(-2px); }
+      66% { transform: rotate(-1.2deg) translateY(-2px); }
+    }
+    .animate-badge-sway {
+      animation: badgeSway 5s ease-in-out infinite;
+      transform-origin: top center;
+    }
+
+    /* Timeline connector line */
+    .timeline-line {
+      background: linear-gradient(to bottom, #14B8A6, #06B6D4, #3B82F6);
     }
   </style>
 </head>
-<body class="bg-[#F8FAFC] text-slate-900 transition-colors duration-500">
-  <div id="scroll-progress"></div>
+<body class="bg-[#F8FAFC] text-slate-900 antialiased selection:bg-teal-600 selection:text-white">
+
   <div id="root"></div>
 
   <script type="text/babel">
     const { useState, useEffect, useRef } = React;
 
-    // --- INTERACTIVE BACKGROUND CANVAS ---
-    function InteractiveAiBackground({ darkMode }) {
-      const canvasRef = useRef(null);
-
-      useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let animationFrameId;
-        let width = (canvas.width = window.innerWidth);
-        let height = (canvas.height = window.innerHeight);
-
-        const handleResize = () => {
-          width = canvas.width = window.innerWidth;
-          height = canvas.height = window.innerHeight;
-        };
-        window.addEventListener('resize', handleResize);
-
-        const mouse = { x: width / 2, y: height / 2, targetX: width / 2, targetY: height / 2 };
-        const handleMouseMove = (e) => {
-          mouse.targetX = e.clientX;
-          mouse.targetY = e.clientY;
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-
-        const pointCount = Math.floor(Math.min(width, height) / 22);
-        const points = [];
-        for (let i = 0; i < pointCount; i++) {
-          points.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.45,
-            vy: (Math.random() - 0.5) * 0.45,
-            radius: Math.random() * 2 + 1.2,
-          });
-        }
-
-        const render = () => {
-          mouse.x += (mouse.targetX - mouse.x) * 0.04;
-          mouse.y += (mouse.targetY - mouse.y) * 0.04;
-
-          ctx.clearRect(0, 0, width, height);
-
-          // Grid pattern
-          ctx.strokeStyle = darkMode ? 'rgba(255, 255, 255, 0.02)' : 'rgba(15, 23, 42, 0.025)';
-          ctx.lineWidth = 1;
-          const gridSize = 45;
-          for (let x = 0; x < width; x += gridSize) {
-            ctx.beginPath();
-            ctx.moveTo(x, 0);
-            ctx.lineTo(x, height);
-            ctx.stroke();
-          }
-          for (let y = 0; y < height; y += gridSize) {
-            ctx.beginPath();
-            ctx.moveTo(0, y);
-            ctx.lineTo(width, y);
-            ctx.stroke();
-          }
-
-          // Ambient cursor radial spotlight
-          const grad = ctx.createRadialGradient(mouse.x, mouse.y, 10, mouse.x, mouse.y, 380);
-          if (darkMode) {
-            grad.addColorStop(0, 'rgba(13, 148, 136, 0.12)');
-            grad.addColorStop(0.5, 'rgba(37, 99, 235, 0.05)');
-            grad.addColorStop(1, 'transparent');
-          } else {
-            grad.addColorStop(0, 'rgba(13, 148, 136, 0.07)');
-            grad.addColorStop(0.5, 'rgba(37, 99, 235, 0.03)');
-            grad.addColorStop(1, 'transparent');
-          }
-          ctx.fillStyle = grad;
-          ctx.fillRect(0, 0, width, height);
-
-          // Nodes & Connections
-          for (let i = 0; i < points.length; i++) {
-            const p = points[i];
-            p.x += p.vx;
-            p.y += p.vy;
-
-            if (p.x < 0 || p.x > width) p.vx *= -1;
-            if (p.y < 0 || p.y > height) p.vy *= -1;
-
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-            ctx.fillStyle = darkMode ? 'rgba(45, 212, 191, 0.45)' : 'rgba(13, 148, 136, 0.35)';
-            ctx.fill();
-
-            for (let j = i + 1; j < points.length; j++) {
-              const p2 = points[j];
-              const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-              if (dist < 110) {
-                ctx.beginPath();
-                ctx.moveTo(p.x, p.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.strokeStyle = darkMode
-                  ? 'rgba(45, 212, 191, ' + (0.15 * (1 - dist / 110)) + ')'
-                  : 'rgba(13, 148, 136, ' + (0.12 * (1 - dist / 110)) + ')';
-                ctx.stroke();
-              }
-            }
-          }
-
-          animationFrameId = requestAnimationFrame(render);
-        };
-
-        render();
-
-        return () => {
-          cancelAnimationFrame(animationFrameId);
-          window.removeEventListener('resize', handleResize);
-          window.removeEventListener('mousemove', handleMouseMove);
-        };
-      }, [darkMode]);
-
+    // --- BACKGROUND SUBTLE GRID & SPOTLIGHT ---
+    function AmbientBackground() {
       return (
-        <canvas
-          ref={canvasRef}
-          className="fixed inset-0 pointer-events-none z-0"
-          style={{ opacity: 0.85 }}
-        />
-      );
-    }
-
-    // --- CUSTOM CURSOR ---
-    function CustomCursor() {
-      const cursorRef = useRef(null);
-      const [visible, setVisible] = useState(false);
-
-      useEffect(() => {
-        const cursor = cursorRef.current;
-        if (!cursor) return;
-
-        const updatePosition = (clientX, clientY) => {
-          if (!visible) setVisible(true);
-          cursor.style.transform = 'translate3d(' + (clientX - 12) + 'px, ' + (clientY - 12) + 'px, 0)';
-        };
-
-        const onMouseMove = (e) => {
-          updatePosition(e.clientX, e.clientY);
-        };
-
-        const onTouchMove = (e) => {
-          if (e.touches && e.touches[0]) {
-            updatePosition(e.touches[0].clientX, e.touches[0].clientY);
-          }
-        };
-
-        window.addEventListener('mousemove', onMouseMove, { passive: true });
-        window.addEventListener('touchmove', onTouchMove, { passive: true });
-        return () => {
-          window.removeEventListener('mousemove', onMouseMove);
-          window.removeEventListener('touchmove', onTouchMove);
-        };
-      }, [visible]);
-
-      return (
-        <div
-          ref={cursorRef}
-          style={{ opacity: visible ? 1 : 0 }}
-          className="fixed top-0 left-0 w-6 h-6 rounded-full border-2 border-teal-500/70 pointer-events-none z-50 transition-opacity duration-300 ease-out hidden md:block"
-        >
-          <div className="w-1.5 h-1.5 bg-teal-500 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-xs shadow-teal-500" />
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-70" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-teal-200/25 via-cyan-100/20 to-transparent blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-t from-teal-100/30 to-transparent blur-3xl pointer-events-none" />
         </div>
       );
     }
 
-    // --- NAVBAR (SHOWS STRICTLY [HN] IN BRAND LOGO) ---
-    function PortfolioNavbar({ onOpenResume, darkMode, setDarkMode }) {
+    // --- NAVIGATION BAR (STRICT LIGHT MODE ONLY) ---
+    function PortfolioNavbar({ onOpenResume }) {
       const [scrolled, setScrolled] = useState(false);
       const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -361,64 +130,69 @@
       }, []);
 
       const navLinks = [
-        { name: 'ABOUT', href: '#about' },
-        { name: 'SERVICES', href: '#services' },
-        { name: 'EDUCATION', href: '#career' },
         { name: 'WORK', href: '#work' },
+        { name: 'WHAT I DO', href: '#what-i-do' },
+        { name: 'ABOUT', href: '#about' },
+        { name: 'SKILLS', href: '#skills' },
+        { name: 'EDUCATION', href: '#education' },
+        { name: 'EXPERIENCE', href: '#experience' },
         { name: 'CONTACT', href: '#contact' },
       ];
 
       return (
-        <header className={'fixed top-0 left-0 right-0 z-40 transition-all duration-300 ' + (scrolled ? (darkMode ? 'bg-slate-900/90 border-b border-slate-800 shadow-md py-3' : 'glass-nav shadow-xs py-3') : 'bg-transparent py-5')}>
+        <header className={'fixed top-0 left-0 right-0 z-40 transition-all duration-300 ' + (scrolled ? 'glass-nav shadow-xs py-3' : 'bg-transparent py-5')}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-            {/* Left: ONLY [HN] Badge per user request */}
-            <a href="#hero" className="flex items-center group" title="Hafsa Naeem">
-              <span className="w-9 h-9 rounded-xl bg-teal-50 dark:bg-teal-950 border border-teal-500/40 text-teal-700 dark:text-teal-300 font-mono font-black text-sm flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white group-hover:scale-105 transition-all shadow-2xs">
+            {/* Left: [HN] Monogram Badge */}
+            <a href="#hero" className="flex items-center gap-2.5 group" title="Hafsa Naeem">
+              <span className="w-9 h-9 rounded-xl bg-teal-50 border border-teal-500/40 text-teal-700 font-mono font-black text-sm flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white group-hover:scale-105 transition-all shadow-2xs">
                 HN
+              </span>
+              <span className="hidden sm:inline-block font-bold text-slate-800 text-sm tracking-tight font-sans">
+                Hafsa Naeem
               </span>
             </a>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8">
+            {/* Desktop Navigation Links */}
+            <nav className="hidden lg:flex items-center gap-7">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-xs uppercase tracking-widest font-bold text-slate-600 dark:text-slate-300 hover:text-teal-600 dark:hover:text-teal-400 transition-colors font-mono"
+                  className="text-xs uppercase tracking-wider font-bold text-slate-600 hover:text-teal-600 transition-colors font-mono"
                 >
                   {link.name}
                 </a>
               ))}
             </nav>
 
-            {/* Right: Theme Toggle & Resume Action */}
-            <div className="hidden md:flex items-center gap-4">
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/70 text-slate-700 dark:text-slate-200 text-xs font-mono font-semibold flex items-center gap-1.5 hover:border-teal-400 transition-colors"
-                title="Toggle Theme"
+            {/* Right: Resume Button */}
+            <div className="hidden sm:flex items-center gap-3">
+              <a
+                href="#contact"
+                className="px-4 py-2 rounded-full text-xs font-mono font-bold text-slate-700 hover:text-teal-600 border border-slate-200 bg-white/80 hover:bg-white transition-all shadow-2xs"
               >
-                <span>{darkMode ? '☀️ Light' : '🌙 Dark'}</span>
-              </button>
+                Get In Touch
+              </a>
               <button
                 onClick={onOpenResume}
-                className="px-5 py-2 rounded-full bg-slate-900 dark:bg-teal-500 text-white dark:text-slate-950 text-xs font-mono font-bold uppercase tracking-wider hover:bg-teal-600 dark:hover:bg-teal-400 transition-all shadow-2xs hover:scale-105 active:scale-95"
+                className="px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-mono font-bold uppercase tracking-wider hover:bg-teal-600 transition-all shadow-xs hover:scale-105 active:scale-95"
               >
-                RESUME
+                RESUME 📄
               </button>
             </div>
 
             {/* Mobile Hamburger Toggle */}
-            <div className="flex md:hidden items-center gap-2">
+            <div className="flex lg:hidden items-center gap-2">
               <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-xl text-xs bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200"
+                onClick={onOpenResume}
+                className="sm:hidden px-3 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-mono font-bold"
               >
-                {darkMode ? '☀️' : '🌙'}
+                RESUME
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors"
+                aria-label="Toggle Navigation Menu"
               >
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {mobileMenuOpen ? (
@@ -433,18 +207,18 @@
 
           {/* Mobile Drawer */}
           {mobileMenuOpen && (
-            <div className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-6 py-6 space-y-4">
+            <div className="lg:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-6 space-y-3.5 shadow-lg">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:text-teal-600 font-mono"
+                  className="block text-sm font-bold uppercase tracking-wider text-slate-700 hover:text-teal-600 font-mono"
                 >
                   {link.name}
                 </a>
               ))}
-              <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+              <div className="pt-3 border-t border-slate-100 flex gap-3">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
@@ -461,122 +235,106 @@
       );
     }
 
-    // --- HERO CENTER 3D AVATAR (AUTHENTIC SAME-FACE CHARACTER) ---
-    function HeroCenterAvatar({ darkMode }) {
-      const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
-
-      useEffect(() => {
-        const handleMouseMove = (e) => {
-          const normX = (e.clientX / window.innerWidth) - 0.5;
-          const normY = (e.clientY / window.innerHeight) - 0.5;
-          setMouseOffset({ x: normX * 18, y: normY * 18 });
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
-      }, []);
-
-      return (
-        <div className="relative w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[540px] aspect-square flex items-center justify-center select-none pointer-events-none group">
-          {/* Soft Radial Ambient Aura */}
-          <div
-            className="absolute rounded-full pointer-events-none transition-transform duration-300 ease-out"
-            style={{
-              width: '420px',
-              height: '420px',
-              background: darkMode
-                ? 'radial-gradient(circle, rgba(45, 212, 191, 0.35) 0%, rgba(56, 189, 248, 0.16) 45%, transparent 70%)'
-                : 'radial-gradient(circle, rgba(20, 184, 166, 0.28) 0%, rgba(56, 189, 248, 0.14) 45%, transparent 70%)',
-              filter: 'blur(55px)',
-              transform: 'translate3d(' + (mouseOffset.x * 0.8) + 'px, ' + (mouseOffset.y * 0.8) + 'px, 0)'
-            }}
-          />
-
-          {/* Borderless Transparent 3D Character */}
-          <div
-            className="relative z-10 w-full h-full flex items-center justify-center transition-transform duration-150 ease-out animate-float-subtle"
-            style={{
-              transform: 'translate3d(' + mouseOffset.x + 'px, ' + mouseOffset.y + 'px, 0)'
-            }}
-          >
-            <img
-              src="images/ui/female-developer-3d-hero-transparent.png"
-              alt="Hafsa Naeem - 3D Character Illustration"
-              className="w-full h-full object-contain filter drop-shadow-[0_25px_40px_rgba(15,23,42,0.22)] select-none pointer-events-none"
-            />
-          </div>
-        </div>
-      );
-    }
-
-    // --- HERO SECTION ---
-    function WhozaryabLightHero({ onOpenResume, darkMode }) {
+    // --- 1. HERO SECTION ---
+    function HeroSection({ onOpenResume }) {
       return (
         <section
           id="hero"
           className="relative w-full min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden px-4 md:px-8 select-none pt-24 pb-16 z-10"
         >
-          {/* Main Hero Container */}
           <div className="relative w-full max-w-7xl h-full flex flex-col items-center justify-center">
 
             {/* Top-Left Headline: Hello! I'm HAFSA NAEEM */}
             <div className="w-full lg:absolute lg:top-8 lg:left-6 z-20 text-center lg:text-left mb-6 lg:mb-0">
-              <h2 className="text-base sm:text-lg md:text-xl font-normal tracking-[0.18em] text-teal-600 dark:text-teal-400 mb-1 font-mono uppercase">
-                Hello! I'm
-              </h2>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-slate-900 dark:text-white leading-[1.08]">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-mono font-semibold tracking-wider uppercase mb-3">
+                <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
+                <span>Aspiring IT Professional &amp; Software Specialist</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-slate-900 leading-[1.08]">
                 HAFSA<br />NAEEM
               </h1>
-              <p className="mt-3 text-xs md:text-sm font-mono text-slate-500 dark:text-slate-400 max-w-sm mx-auto lg:mx-0 uppercase tracking-wider">
-                Aspiring IT Professional & Software
+              <p className="mt-3 text-xs md:text-sm font-mono text-slate-500 max-w-sm mx-auto lg:mx-0 uppercase tracking-wider">
+                MBA Finance • Frontend Web Development
               </p>
+              
+              <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                <a
+                  href="#work"
+                  className="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-mono font-bold text-xs uppercase tracking-wider shadow-sm transition-all hover:scale-105"
+                >
+                  View Featured Work ↓
+                </a>
+                <button
+                  onClick={onOpenResume}
+                  className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-mono font-bold text-xs uppercase tracking-wider border border-slate-300 hover:border-teal-400 shadow-2xs transition-all"
+                >
+                  View Resume 📄
+                </button>
+              </div>
             </div>
 
-            {/* Center: 3D Animated Character Avatar */}
+            {/* Center: 3D Character Avatar with Ambient Aura */}
             <div className="relative z-10 w-full flex items-center justify-center my-4 lg:my-auto">
-              <HeroCenterAvatar darkMode={darkMode} />
+              <div className="relative w-[280px] sm:w-[360px] md:w-[420px] aspect-square flex items-center justify-center">
+                <div
+                  className="absolute pointer-events-none rounded-full animate-pulse-glow"
+                  style={{
+                    width: '320px',
+                    height: '320px',
+                    background: 'radial-gradient(circle, rgba(20, 184, 166, 0.25) 0%, rgba(6, 182, 212, 0.12) 45%, transparent 70%)',
+                    filter: 'blur(35px)',
+                    zIndex: 0
+                  }}
+                />
+                <img
+                  src="images/ui/female-developer-3d-hero-transparent.png"
+                  alt="Hafsa Naeem - 3D Developer Character Avatar"
+                  className="w-full h-full object-contain pointer-events-none drop-shadow-xl relative z-10 animate-float"
+                />
+              </div>
             </div>
 
-            {/* Lower-Right Text: “Building Skills. Creating Possibilities.” */}
+            {/* Lower-Right Statement */}
             <div className="w-full lg:absolute lg:bottom-12 lg:right-6 z-20 text-center lg:text-right mt-6 lg:mt-0">
               <div className="inline-block transition-transform duration-300 hover:scale-[1.02]">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-black tracking-tight text-slate-900 dark:text-white leading-[1.15] max-w-md mx-auto lg:ml-auto lg:mr-0">
-                  <span className="text-slate-900 dark:text-white">Building Skills.</span><br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600 dark:from-teal-400 dark:via-cyan-400 dark:to-blue-400">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[2.75rem] font-black tracking-tight text-slate-900 leading-[1.15] max-w-md mx-auto lg:ml-auto lg:mr-0">
+                  <span>Building Skills.</span><br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600">
                     Creating Possibilities.
                   </span>
                 </h2>
               </div>
             </div>
 
-            {/* Pinned Left: Vertical Social Bar */}
-            <div className="hidden lg:flex fixed left-4 lg:left-8 bottom-12 z-30 flex-col items-center gap-4">
+            {/* Pinned Left: Social Bar */}
+            <div className="hidden lg:flex fixed left-4 lg:left-8 bottom-12 z-30 flex-col items-center gap-3">
               <a
                 href="https://github.com/Hafsa121-naeem"
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-teal-400 text-slate-700 dark:text-slate-200 hover:text-teal-600 transition-all duration-300 shadow-xs hover:scale-110 flex items-center justify-center"
+                className="w-9 h-9 rounded-full bg-white hover:bg-teal-50 border border-slate-200 hover:border-teal-400 text-slate-700 hover:text-teal-600 transition-all duration-300 shadow-2xs hover:scale-110 flex items-center justify-center"
                 title="GitHub Profile"
               >
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                 </svg>
               </a>
               <a
                 href="mailto:Hfsanaeem3@gmail.com"
-                className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 hover:border-teal-400 text-slate-700 dark:text-slate-200 hover:text-teal-600 transition-all duration-300 shadow-xs hover:scale-110 flex items-center justify-center"
+                className="w-9 h-9 rounded-full bg-white hover:bg-teal-50 border border-slate-200 hover:border-teal-400 text-slate-700 hover:text-teal-600 transition-all duration-300 shadow-2xs hover:scale-110 flex items-center justify-center"
                 title="Direct Email"
               >
-                <svg className="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </a>
-              <div className="w-px h-12 bg-slate-300 dark:bg-slate-700" />
+              <div className="w-px h-10 bg-slate-300" />
             </div>
 
             {/* Scroll Indicator */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center">
-              <span className="text-[10px] font-mono tracking-widest text-slate-400 dark:text-slate-500 uppercase mb-1">SCROLL</span>
-              <div className="w-4 h-7 border-2 border-slate-300 dark:border-slate-600 rounded-full flex items-start justify-center p-1">
+              <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase mb-1">SCROLL</span>
+              <div className="w-4 h-7 border-2 border-slate-300 rounded-full flex items-start justify-center p-1">
                 <div className="w-1 h-2 bg-teal-500 rounded-full animate-bounce" />
               </div>
             </div>
@@ -585,394 +343,30 @@
       );
     }
 
-    // --- ABOUT ME SECTION (CONSISTENTLY CENTERED HEADING & USER'S EXACT BIO) ---
-    function AboutMeSection({ onOpenResume, darkMode }) {
-      return (
-        <section
-          id="about"
-          className="relative min-h-[85vh] py-20 lg:py-28 px-4 sm:px-6 lg:px-12 max-w-7xl mx-auto flex flex-col justify-center select-none overflow-hidden z-10"
-        >
-          {/* Consistently Centered Heading Across All Devices */}
-          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-14">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white uppercase leading-tight">
-              About Me
-            </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full mt-4 mx-auto" />
-          </div>
-
-          {/* Bio Text Card in Center */}
-          <div className="w-full max-w-4xl mx-auto bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-3xl p-7 sm:p-10 lg:p-12 border border-slate-200/80 dark:border-slate-700/80 shadow-xs hover:shadow-md transition-all duration-300">
-            <div className="space-y-6 text-slate-700 dark:text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
-              <p className="text-lg sm:text-xl font-semibold text-slate-900 dark:text-white leading-snug">
-                Hello! I’m <span className="text-teal-600 dark:text-teal-400">Hafsa Naeem</span>, an <span className="text-teal-600 dark:text-teal-400">MBA Finance</span> graduate from the <span className="text-slate-900 dark:text-white font-medium">University of Agriculture, Faisalabad</span>.
-              </p>
-
-              <p>
-                I have a background in <span className="text-slate-900 dark:text-white font-medium">Finance and Human Resource Management</span>, along with practical experience through an <span className="text-slate-900 dark:text-white font-medium">HR internship at Alhamrah Fabrics</span>, where I gained exposure to recruitment, employee record management, and attendance management.
-              </p>
-
-              <p>
-                Currently, I am expanding my knowledge through an IT course, learning <span className="text-teal-600 dark:text-teal-400 font-medium">HTML, CSS, JavaScript, and Git & GitHub</span>. I enjoy exploring new technologies, developing creative solutions, and continuously improving my professional skills.
-              </p>
-
-              <p className="pt-2 text-slate-900 dark:text-white font-medium border-t border-slate-100 dark:border-slate-700/60">
-                I consider myself a motivated, adaptable, and detail-oriented individual who believes in continuous learning and professional growth.
-              </p>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    // --- WHAT I DO SECTION (ORIGINAL LEFT-ALIGNED HEADING) ---
-    function WhatIDoSection() {
-      const [openCard, setOpenCard] = useState('frontend');
-      const [orbPos, setOrbPos] = useState({ x: 300, y: 150 });
-      const cardsContainerRef = useRef(null);
-
-      const toggleCard = (id) => {
-        setOpenCard(openCard === id ? null : id);
-      };
-
-      const handleCardsMouseMove = (e) => {
-        if (!cardsContainerRef.current) return;
-        const rect = cardsContainerRef.current.getBoundingClientRect();
-        setOrbPos({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top
-        });
-      };
-
-      return (
-        <section id="services" className="relative w-full py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left: Original Left-Aligned Heading & 3D Character */}
-            <div className="lg:col-span-5 flex flex-col items-center lg:items-start">
-              <div className="mb-6 text-center lg:text-left">
-                <h2 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-none">
-                  WHAT<br />
-                  <span className="text-teal-600">I DO</span>
-                </h2>
-              </div>
-              <div className="w-full max-w-[380px] aspect-square relative flex items-center justify-center overflow-hidden rounded-3xl bg-transparent group animate-float-subtle">
-                <div
-                  className="absolute pointer-events-none rounded-full"
-                  style={{
-                    width: '320px',
-                    height: '320px',
-                    background: 'radial-gradient(circle, rgba(20, 184, 166, 0.22) 0%, rgba(56, 189, 248, 0.1) 45%, transparent 70%)',
-                    filter: 'blur(40px)',
-                    zIndex: 0
-                  }}
-                />
-                <img
-                  src="images/ui/female-developer-3d-hero-transparent.png"
-                  alt="Hafsa Naeem - 3D Developer Character"
-                  className="w-full h-full object-contain pointer-events-none drop-shadow-lg transition-transform duration-500 group-hover:scale-105 relative z-10"
-                />
-              </div>
-            </div>
-
-            {/* Right: Clean Interactive Service Cards */}
-            <div
-              ref={cardsContainerRef}
-              onMouseMove={handleCardsMouseMove}
-              className="lg:col-span-7 flex flex-col gap-6 relative"
-            >
-              <div
-                className="glowing-orb"
-                style={{
-                  transform: 'translate3d(' + (orbPos.x - 30) + 'px, ' + (orbPos.y - 30) + 'px, 0)'
-                }}
-              />
-
-              {/* Card 1: FRONTEND */}
-              <div
-                className="dashed-card bg-white dark:bg-slate-900/90 rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-300 shadow-xs hover:shadow-md"
-                onClick={() => toggleCard('frontend')}
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-                      FRONTEND
-                    </h3>
-                    <p className="text-xs sm:text-sm text-teal-600 dark:text-teal-400 font-semibold mt-1">
-                      Building Interactive & Responsive UIs
-                    </p>
-                  </div>
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center border border-slate-300 dark:border-slate-700 text-slate-500 transition-colors hover:border-teal-500 hover:text-teal-600">
-                    <svg className={'w-4 h-4 transform transition-transform duration-300 ' + (openCard === 'frontend' ? 'rotate-180' : '')} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </div>
-
-                <div className={'overflow-hidden transition-all duration-300 ease-in-out ' + (openCard === 'frontend' ? 'max-h-96 mt-4 opacity-100' : 'max-h-0 opacity-0')}>
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                    Transforming design specifications into clean, accessible, and performant user interfaces. Structuring reusable React components, managing responsive layouts, and ensuring cross-browser fidelity.
-                  </p>
-                  <div className="mt-4">
-                    <p className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">Skillset & Tools</p>
-                    <div className="flex flex-wrap gap-2">
-                      {['React 18', 'JavaScript (ES6+)', 'Tailwind CSS', 'HTML5 Semantic', 'CSS3 Architecture', 'Responsive Design', 'Git / GitHub'].map((tag) => (
-                        <span key={tag} className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-teal-50 hover:text-teal-700 hover:border-teal-200 transition-colors">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Card 2: WEB DEVELOPMENT & TOOLS */}
-              <div
-                className="dashed-card rounded-2xl p-6 sm:p-8 cursor-pointer transition-all duration-300 shadow-xs hover:shadow-md"
-                onClick={() => toggleCard('backend')}
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-                      WEB DEVELOPMENT & TOOLS
-                    </h3>
-                    <p className="text-xs sm:text-sm text-teal-600 dark:text-teal-400 font-semibold mt-1">
-                      Modern Workflows, Version Control & Operations
-                    </p>
-                  </div>
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center border border-slate-300 dark:border-slate-700 text-slate-500 transition-colors hover:border-teal-500 hover:text-teal-600">
-                    <svg className={'w-4 h-4 transform transition-transform duration-300 ' + (openCard === 'backend' ? 'rotate-180' : '')} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </div>
-                </div>
-
-                <div className={'overflow-hidden transition-all duration-300 ease-in-out ' + (openCard === 'backend' ? 'max-h-96 mt-4 opacity-100' : 'max-h-0 opacity-0')}>
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                    Implementing daily Git version control workflows, component architecture, client-side data handling, and connecting front-end applications with modern deployment environments.
-                  </p>
-                  <div className="mt-4">
-                    <p className="text-xs uppercase tracking-wider font-semibold text-slate-400 mb-2">Skillset & Tools</p>
-                    <div className="flex flex-wrap gap-2">
-                      {['Git Workflow', 'GitHub Hosting', 'Vite / npm', 'REST APIs', 'UI Prototyping', 'Responsive CSS'].map((tag) => (
-                        <span key={tag} className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-teal-50 hover:text-teal-700 hover:border-teal-200 transition-colors">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    // --- EDUCATION & BACKGROUND SECTION (CONSISTENTLY CENTERED HEADING) ---
-    function CareerSection({ darkMode }) {
-      const educationItems = [
-        {
-          degree: "MBA Finance",
-          year: "2025",
-          field: "Postgraduate Degree",
-          desc: "Corporate Finance, Financial Modeling, Capital Budgeting & Analytical Precision.",
-          badge: "Finance & Strategy"
-        },
-        {
-          degree: "M.Com",
-          year: "2022",
-          field: "Master of Commerce",
-          desc: "Advanced Financial Accounting, Commerce Principles, Managerial Economics & Business Strategy.",
-          badge: "Commerce & Management"
-        },
-        {
-          degree: "B.Com",
-          year: "2020",
-          field: "Bachelor of Commerce",
-          desc: "Banking Operations, Financial Systems, Auditing Standards & Commercial Business Foundations.",
-          badge: "Banking & Finance"
-        },
-        {
-          degree: "I.Com",
-          year: "2018",
-          field: "Intermediate in Commerce",
-          desc: "Fundamental Principles of Accounting, Commercial Geography, Economics & Business Mathematics.",
-          badge: "Commerce Fundamentals"
-        }
-      ];
-
-      const experienceItems = [
-        {
-          period: "3 MONTHS (2024)",
-          role: "HR Operations Intern",
-          org: "Alhamrah Fabrics | Faisalabad, PK",
-          standing: "Corporate Workplace Experience",
-          points: [
-            "Managed biometric clock-in logs and attendance records with strict operational data hygiene.",
-            "Maintained confidential digital personnel files and structured corporate employee documentation.",
-            "Cultivated structured workplace professionalism, stakeholder communication, and organizational discipline."
-          ]
-        }
-      ];
-
-      return (
-        <section id="career" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10">
-          <div id="education" className="absolute -top-24" />
-
-          {/* Consistently Centered Heading Across All Devices */}
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white uppercase">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-500 dark:from-teal-400 dark:via-cyan-400 dark:to-teal-300">
-                EDUCATION
-              </span>{" "}
-              & BACKGROUND
-            </h2>
-            <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4 rounded-full" />
-          </div>
-
-          {/* SUBSECTION 1: DEDICATED ACADEMIC EDUCATION (4 Cards in Clean 2x2 Grid) */}
-          <div className="mb-20">
-            {/* 4 Cards in Clean 2x2 Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
-              {educationItems.map((edu, idx) => (
-                <div
-                  key={idx}
-                  className="group relative p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-xs hover:shadow-lg hover:border-teal-400 dark:hover:border-teal-500/60 hover:-translate-y-1 transition-all duration-300"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <div className="flex items-center gap-2.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-teal-500 group-hover:scale-125 transition-transform" />
-                      <span className="text-xs font-bold text-teal-700 dark:text-teal-300 uppercase tracking-wider font-mono">
-                        {edu.badge}
-                      </span>
-                    </div>
-                    <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/80 border border-teal-200/70 dark:border-teal-800/70 text-teal-700 dark:text-teal-300">
-                      {edu.year}
-                    </span>
-                  </div>
-
-                  <h4 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2">
-                    {edu.degree}
-                  </h4>
-                  <p className="text-xs sm:text-sm font-semibold text-teal-600 dark:text-teal-400 mb-2">
-                    {edu.field}
-                  </p>
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-                    {edu.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* SUBSECTION 2: PROFESSIONAL EXPERIENCE (PROMINENTLY HIGHLIGHTED WITH 3D CHARACTER PHOTO) */}
-          <div>
-            <div className="flex flex-col items-center justify-center mb-10 text-center">
-              <div className="flex items-center gap-3">
-                <span className="w-10 h-10 rounded-2xl bg-teal-50 dark:bg-teal-950 text-teal-600 dark:text-teal-400 font-bold flex items-center justify-center text-lg shadow-2xs border border-teal-500/30">
-                  💼
-                </span>
-                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-500 dark:from-teal-400 dark:via-cyan-400 dark:to-teal-300">
-                    Professional Experience
-                  </span>{" "}
-                  & Practice
-                </h3>
-              </div>
-              <div className="w-12 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto rounded-full mt-3" />
-              <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono mt-2">
-                Hands-on technical implementation and corporate HR operations
-              </p>
-            </div>
-
-            {/* Grid: Experience Cards (7 cols) + 3D Character Photo (5 cols) */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left Column: Timeline Cards */}
-              <div className="lg:col-span-7 flex flex-col gap-6">
-                {experienceItems.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="relative group bg-white dark:bg-slate-800/90 rounded-2xl border border-slate-200/80 dark:border-slate-700/80 p-6 sm:p-8 shadow-xs hover:shadow-md hover:border-teal-400 dark:hover:border-teal-500/60 transition-all duration-300"
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <span className="text-xs font-bold text-teal-700 dark:text-teal-300 uppercase tracking-wider px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/70 border border-teal-200/60 dark:border-teal-800/60 font-mono">
-                        {item.period}
-                      </span>
-                      <span className="text-xs font-semibold text-slate-400 dark:text-slate-400">
-                        {item.standing}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-2">
-                      {item.role}
-                    </h3>
-                    <p className="text-sm font-semibold text-teal-600 dark:text-teal-400 mb-4">
-                      {item.org}
-                    </p>
-
-                    <ul className="space-y-2 mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 font-normal leading-relaxed">
-                      {item.points.map((pt, pIdx) => (
-                        <li key={pIdx} className="flex items-start gap-2.5">
-                          <span className="text-teal-500 font-bold mt-1 text-xs">▹</span>
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-
-              {/* Right Column: 3D Character Photo Placed Here */}
-              <div className="lg:col-span-5 flex items-center justify-center">
-                <div className="relative w-full max-w-[360px] sm:max-w-[400px] aspect-square flex items-center justify-center select-none animate-float-subtle group">
-                  <div
-                    className="absolute pointer-events-none rounded-full"
-                    style={{
-                      width: '300px',
-                      height: '300px',
-                      background: 'radial-gradient(circle, rgba(20, 184, 166, 0.28) 0%, rgba(56, 189, 248, 0.15) 50%, transparent 70%)',
-                      filter: 'blur(45px)',
-                      zIndex: 0
-                    }}
-                  />
-                  <img
-                    src="images/ui/female-developer-3d-hero-transparent.png"
-                    alt="Hafsa Naeem - Experience & Professional Growth"
-                    className="w-full h-full object-contain filter drop-shadow-[0_20px_35px_rgba(15,23,42,0.18)] pointer-events-none relative z-10 transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-4 -right-1 sm:right-2 z-20 px-3.5 py-1.5 rounded-full bg-white/95 dark:bg-slate-800/95 border border-teal-500/40 text-teal-700 dark:text-teal-300 text-xs font-mono font-semibold shadow-xs backdrop-blur-md">
-                    💼 Experience & Skills
-                  </div>
-                  <div className="absolute bottom-6 -left-1 sm:left-2 z-20 px-3.5 py-1.5 rounded-full bg-white/95 dark:bg-slate-800/95 border border-teal-500/40 text-teal-700 dark:text-teal-300 text-xs font-mono font-semibold shadow-xs backdrop-blur-md">
-                    ⚡ Front-End & Operations
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      );
-    }
-
-    // --- WORK / PROJECTS SECTION (CONSISTENTLY CENTERED HEADING) ---
+    // --- 2. FEATURED WORK / PROJECTS (NOW 2ND SECTION PER INSTRUCTOR FEEDBACK) ---
     function WorkSection({ onOpenProjectModal }) {
       return (
-        <section id="work" className="relative py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10">
-          {/* Consistently Centered Heading Across All Devices */}
-          <div className="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white uppercase">
+        <section id="work" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10 border-t border-slate-200/80">
+          {/* Centered Heading */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200 px-3.5 py-1 rounded-full">
+              Real Practice Project Showcase
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 uppercase mt-3">
               FEATURED WORK
             </h2>
             <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4 rounded-full" />
-            <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 font-normal">
-              Production web applications and modern React component systems
+            <p className="mt-3 text-sm sm:text-base text-slate-600 font-normal max-w-xl mx-auto">
+              Real-world simulated commercial web catalog developed as an instructor-guided project.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="group relative rounded-3xl bg-white dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 overflow-hidden shadow-xs hover:shadow-xl hover:border-teal-400 dark:hover:border-teal-500/60 transition-all duration-300">
+          <div className="max-w-5xl mx-auto">
+            <div className="group relative rounded-3xl bg-white border border-slate-200/90 overflow-hidden shadow-xs hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+              {/* Clickable Image Preview */}
               <div 
                 onClick={onOpenProjectModal}
-                className="aspect-video w-full bg-slate-100 dark:bg-slate-950 flex items-center justify-center overflow-hidden relative group cursor-pointer"
+                className="aspect-video w-full bg-slate-100 flex items-center justify-center overflow-hidden relative group cursor-pointer"
                 title="Click to view NexDrive project details"
               >
                 <img
@@ -980,43 +374,45 @@
                   alt="NexDrive USB Flash Storage Solutions — Official Website Homepage"
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-102"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex items-end p-6 sm:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent flex items-end p-6 sm:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
                   <div>
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-300 px-3 py-1 rounded-full bg-slate-900/90 shadow-2xs border border-teal-500/40">
-                      Live Project Showcase
+                      Practice Web Application
                     </span>
                     <h3 className="text-xl sm:text-2xl font-bold text-white mt-2">
                       NexDrive — USB Flash Storage Solutions
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-200 mt-1 max-w-xl">
-                      Live corporate web catalog featuring enterprise flash storage, verified speed benchmarks, custom laser branding, and responsive architecture.
+                      A complete corporate web catalog featuring enterprise flash storage, verified speed benchmarks, custom laser branding previews, and responsive architecture.
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="p-6 sm:p-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 dark:border-slate-700/60">
+              {/* Bottom Card Meta & Buttons */}
+              <div className="p-6 sm:p-8 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 bg-white">
                 <div className="flex flex-wrap gap-2">
-                  {['React 18', 'Tailwind CSS', 'Component Architecture', 'Responsive UI'].map((tag) => (
-                    <span key={tag} className="text-xs font-medium px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200">
+                  {['React 18', 'Tailwind CSS', 'Component Architecture', 'Responsive UI', 'Git & GitHub'].map((tag) => (
+                    <span key={tag} className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
                       {tag}
                     </span>
                   ))}
                 </div>
                 <div className="flex items-center gap-3">
                   <a
-                    href="https://github.com/Hafsa121-naeem"
+                    href="https://github.com/Hafsa121-naeem/Hafsa121-naeem.github.io"
                     target="_blank"
                     rel="noreferrer"
-                    className="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-200 transition-colors"
+                    className="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 border border-slate-200 transition-colors inline-flex items-center gap-1"
                   >
-                    Source Code ↗
+                    <span>Source Code</span>
+                    <span>↗</span>
                   </a>
                   <button
                     onClick={onOpenProjectModal}
                     className="px-5 py-2 rounded-xl text-xs font-mono font-bold bg-teal-600 hover:bg-teal-700 text-white shadow-2xs transition-all hover:scale-105"
                   >
-                    View Details
+                    View Details 🔍
                   </button>
                 </div>
               </div>
@@ -1026,27 +422,685 @@
       );
     }
 
-    // --- CONTACT SECTION (CONSISTENTLY CENTERED HEADING & ATTRACTIVE PREMIUM DESIGN) ---
+    // --- 3. WHAT I DO (HEADING ON ONE LINE & 4 CREATIVE BLOCKS) ---
+    function WhatIDoSection() {
+      const services = [
+        {
+          id: 'frontend',
+          num: '01',
+          title: 'Frontend Development',
+          tagline: 'Component-Driven Web Interfaces',
+          desc: 'Building responsive, state-driven interfaces using React 18 and modern JavaScript (ES6+). Focused on reusable component architecture and clean modular code.',
+          tools: ['React 18', 'JavaScript ES6+', 'State Flow'],
+          icon: (
+            /* Authentic React / Modern Code Architecture Icon */
+            <svg className="w-6 h-6 text-teal-600 group-hover:text-cyan-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.75" />
+              <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.75" transform="rotate(60 12 12)" />
+              <ellipse cx="12" cy="12" rx="10" ry="4" stroke="currentColor" strokeWidth="1.75" transform="rotate(120 12 12)" />
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+            </svg>
+          )
+        },
+        {
+          id: 'responsive',
+          num: '02',
+          title: 'Responsive Web Design',
+          tagline: 'Fluid Multi-Device Layouts',
+          desc: 'Creating fluid layouts tested across smartphones, tablets, and desktop displays. Zero horizontal scroll with adaptive flexbox and responsive grid systems.',
+          tools: ['Mobile-First', 'CSS Grid', 'Flexbox'],
+          icon: (
+            /* Authentic Multi-Device Adaptive Screen Icon */
+            <svg className="w-6 h-6 text-teal-600 group-hover:text-cyan-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="3" width="20" height="13" rx="2" strokeWidth="1.8" />
+              <path d="M8 21h8" strokeWidth="1.8" />
+              <path d="M12 16v5" strokeWidth="1.8" />
+              <rect x="14" y="8" width="6" height="10" rx="1" fill="#FFFFFF" stroke="#0D9488" strokeWidth="1.8" />
+            </svg>
+          )
+        },
+        {
+          id: 'ui-styling',
+          num: '03',
+          title: 'UI Implementation',
+          tagline: 'Pixel Precision & Web Standards',
+          desc: 'Translating design concepts into clean semantic HTML5 and modern Tailwind CSS. Emphasis on typography hierarchy, readable contrast, and accessibility.',
+          tools: ['Tailwind CSS', 'Semantic HTML5', 'WCAG Contrast'],
+          icon: (
+            /* Authentic Design Palette & Pixel-Craft Icon */
+            <svg className="w-6 h-6 text-teal-600 group-hover:text-cyan-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878.547.086.75-.237.75-.526v-1.854c-2.782.605-3.369-1.343-3.369-1.343" strokeWidth="0" />
+              <path d="M12 21a9 9 0 0 1-9-9c0-4.97 4.03-9 9-9 4.14 0 7.6 2.8 8.64 6.64.3 1.1-.38 2.36-1.5 2.36h-2.14a2 2 0 0 0-2 2v1a2 2 0 0 1-2 2h-1" strokeWidth="1.8" />
+              <circle cx="7.5" cy="10.5" r="1.5" fill="currentColor" />
+              <circle cx="12" cy="7.5" r="1.5" fill="currentColor" />
+              <circle cx="16.5" cy="10.5" r="1.5" fill="currentColor" />
+            </svg>
+          )
+        },
+        {
+          id: 'it-learning',
+          num: '04',
+          title: 'Continuous IT Learning',
+          tagline: 'Version Control & Skill Expansion',
+          desc: 'Dedicated to structured daily skill building, disciplined Git & GitHub version control, and combining analytical finance methods with modern software practices.',
+          tools: ['Git & GitHub', 'Analytical Thinking', 'Problem Solving'],
+          icon: (
+            /* Authentic Git Branch & Commit Node Icon */
+            <svg className="w-6 h-6 text-teal-600 group-hover:text-cyan-500 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="6" y1="3" x2="6" y2="15" strokeWidth="2" />
+              <circle cx="18" cy="6" r="3" strokeWidth="2" />
+              <circle cx="6" cy="18" r="3" strokeWidth="2" />
+              <path d="M18 9a9 9 0 0 1-9 9" strokeWidth="2" />
+            </svg>
+          )
+        }
+      ];
+
+      return (
+        <section id="what-i-do" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10 border-t border-slate-200/80">
+          <div id="services" className="absolute -top-24" />
+          
+          {/* Section Header: Heading strictly on ONE line */}
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200 px-3.5 py-1 rounded-full">
+              Core Capabilities
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 uppercase mt-3 whitespace-nowrap">
+              WHAT I DO
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4 rounded-full" />
+            <p className="mt-3 text-sm sm:text-base text-slate-600 font-normal">
+              Practical competencies focused on building clean, accessible, and structured digital interfaces.
+            </p>
+          </div>
+
+          {/* 4 Creative Service Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {services.map((item) => (
+              <div
+                key={item.id}
+                className="group relative rounded-3xl p-7 sm:p-8 bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-teal-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1 overflow-hidden"
+              >
+                {/* Top decorative gradient accent on hover */}
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-13 h-13 rounded-2xl flex items-center justify-center bg-teal-50/80 border border-teal-100 group-hover:bg-gradient-to-tr group-hover:from-teal-500 group-hover:to-cyan-500 group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-2xs">
+                      {item.icon}
+                    </div>
+                    <span className="text-xs font-mono font-bold text-slate-400 group-hover:text-teal-600 transition-colors">
+                      {item.num}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-teal-700 transition-colors tracking-tight">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-xs font-mono font-bold text-teal-600 mt-1 uppercase tracking-wider">
+                    {item.tagline}
+                  </p>
+
+                  <p className="text-sm text-slate-600 leading-relaxed mt-3">
+                    {item.desc}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
+                  {item.tools.map((t) => (
+                    <span
+                      key={t}
+                      className="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-50 text-slate-700 border border-slate-200/80 font-mono group-hover:border-teal-200 group-hover:bg-teal-50/50 transition-colors"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+    // --- 4. ABOUT ME (CREATIVE ASYMMETRIC REDESIGN) ---
+    function AboutMeSection({ onOpenResume }) {
+      return (
+        <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10 border-t border-slate-200/80">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200 px-3.5 py-1 rounded-full">
+              Personal Profile
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 uppercase mt-3">
+              ABOUT ME
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-full mt-4 mx-auto" />
+          </div>
+
+          {/* Asymmetric Modern Layout */}
+          <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Visual Column: Creative Abstract Graphic & Floating Skill Badges */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-sm">
+                
+                {/* Soft ambient gradient glow */}
+                <div className="absolute -inset-3 bg-gradient-to-tr from-teal-500/15 via-cyan-400/20 to-teal-400/10 rounded-3xl blur-xl opacity-75" />
+                
+                {/* Main Identity Card */}
+                <div className="relative rounded-3xl bg-white p-7 sm:p-8 border border-slate-200/90 shadow-lg shadow-teal-900/5 flex flex-col items-center text-center">
+                  
+                  {/* Subtle Background Geometry */}
+                  <div className="absolute top-4 right-4 w-16 h-16 bg-teal-50 rounded-full -z-0 opacity-60" />
+                  <div className="absolute bottom-4 left-4 w-12 h-12 bg-cyan-50 rounded-full -z-0 opacity-60" />
+                  
+                  {/* Floating Skill Badge: Analytics */}
+                  <div className="absolute -top-3.5 -right-2 sm:-right-4 px-3 py-1.5 rounded-full bg-white border border-teal-200/80 shadow-md flex items-center gap-1.5 text-xs font-bold text-slate-800 z-10 hover:-translate-y-0.5 transition-transform">
+                    <span className="text-teal-600">📊</span>
+                    <span>Analytical Mind</span>
+                  </div>
+
+                  {/* Floating Skill Badge: Frontend */}
+                  <div className="absolute -bottom-3.5 -left-2 sm:-left-4 px-3 py-1.5 rounded-full bg-white border border-cyan-200/80 shadow-md flex items-center gap-1.5 text-xs font-bold text-slate-800 z-10 hover:-translate-y-0.5 transition-transform">
+                    <span className="text-cyan-600">💻</span>
+                    <span>Frontend UI</span>
+                  </div>
+
+                  {/* 3D Animated Visual: Professional Female Developer Tech Workspace */}
+                  <div className="relative my-2 w-44 h-44 sm:w-52 sm:h-52 flex items-center justify-center animate-float">
+                    <div
+                      className="absolute inset-0 rounded-full animate-pulse-glow pointer-events-none"
+                      style={{
+                        background: 'radial-gradient(circle, rgba(20, 184, 166, 0.22) 0%, rgba(6, 182, 212, 0.10) 50%, transparent 70%)',
+                        filter: 'blur(22px)'
+                      }}
+                    />
+                    <div className="w-full h-full rounded-2xl bg-gradient-to-b from-white/90 to-slate-50/90 border border-teal-100/90 shadow-xs flex items-center justify-center p-2 relative overflow-hidden group">
+                      <img
+                        src="images/ui/female-developer-3d-hero-transparent.png"
+                        alt="Hafsa Naeem - 3D Developer Workspace"
+                        className="w-full h-full object-contain drop-shadow-md relative z-10 transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </div>
+
+                  <span className="text-base font-black text-slate-900 tracking-tight mt-1">Hafsa Naeem</span>
+                  <span className="text-[10px] font-mono font-bold text-teal-700 tracking-wide uppercase mt-0.5">MBA • IT LEARNER</span>
+
+                  {/* Micro live status indicator */}
+                  <div className="mt-4 pt-4 border-t border-slate-100 w-full flex items-center justify-center gap-2 text-xs font-semibold text-slate-600">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span>Building Practical Web Projects</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            {/* Narrative Column: Creative Typographic Presentation */}
+            <div className="lg:col-span-7 space-y-5">
+              
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold text-teal-800 bg-teal-50 border border-teal-200">
+                <span className="w-1.5 h-1.5 rounded-full bg-teal-500"></span>
+                Strategic Thinking • Modern Interfaces
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 leading-snug">
+                Where <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-cyan-600">Business Insight</span> Meets Technology
+              </h3>
+
+              {/* Concise, impactful introduction with selected bold words */}
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+                I’m <strong className="text-slate-900 font-bold">Hafsa Naeem</strong>, an <strong className="text-teal-700 font-bold">MBA Finance graduate</strong> with an active interest in <strong className="text-slate-900 font-bold">technology and frontend development</strong>.
+              </p>
+
+              {/* Creative Callout Block for Core Strength */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-slate-50 via-teal-50/30 to-cyan-50/20 border-l-4 border-teal-500 border-y border-r border-slate-200/80 shadow-2xs">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                  My background in finance and HR has shaped my <strong className="text-slate-900 font-semibold">analytical thinking</strong>, <strong className="text-slate-900 font-semibold">attention to detail</strong>, and <strong className="text-slate-900 font-semibold">structured approach</strong> to problem-solving.
+                </p>
+              </div>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                I’m currently expanding my IT skills and dedicated to building <strong className="text-slate-800 font-semibold">clean, practical web projects</strong> with modern web standards.
+              </p>
+
+              {/* Compact Key Attribute Tags */}
+              <div className="pt-1 flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700">
+                  <span className="text-teal-600">✓</span> Analytical Approach
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700">
+                  <span className="text-teal-600">✓</span> Attention to Detail
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700">
+                  <span className="text-teal-600">✓</span> Practical Web Projects
+                </span>
+              </div>
+
+              {/* Quick Actions */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href="#work"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-teal-600 text-white font-mono font-bold text-xs uppercase tracking-wider shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+                >
+                  Featured Project <span>↓</span>
+                </a>
+                <button
+                  onClick={onOpenResume}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-mono font-bold text-xs uppercase tracking-wider border border-slate-300 shadow-2xs hover:border-teal-500 transition-all duration-200"
+                >
+                  Academic Credentials <span>📄</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+      );
+    }
+
+    // --- 5. SKILLS & TECH STACK (REAL TECHNOLOGY LOGOS) ---
+    function SkillsSection() {
+      const coreSkills = [
+        {
+          name: 'HTML5',
+          category: 'Frontend Core',
+          desc: 'Semantic web structure, forms, and accessibility standards.',
+          icon: (
+            <svg className="w-10 h-10" viewBox="0 0 512 512" fill="none">
+              <path d="M71.5 460L32 16h448l-39.5 444L256 496 71.5 460z" fill="#E44D26"/>
+              <path d="M256 461l154-43 33-370H256v413z" fill="#F16529"/>
+              <path d="M256 176h-84l6 64h78v60h-78l6 64 72 20v64l-128-36-16-176-6-64h156v64zm0 0h84l-6 64h-78v-64zm0 124h78l-8 88-70 20v64l128-36 18-200 6-64H256v128z" fill="#EBEBEB"/>
+              <path d="M256 176v64h78l-6 64h-72v-64h72l-8 88-64 18v64l128-36 18-200 6-64H256z" fill="#FFFFFF"/>
+            </svg>
+          )
+        },
+        {
+          name: 'CSS3',
+          category: 'Frontend Styling',
+          desc: 'Modern layout engines, Flexbox, Grid, and transitions.',
+          icon: (
+            <svg className="w-10 h-10" viewBox="0 0 512 512" fill="none">
+              <path d="M71.5 460L32 16h448l-39.5 444L256 496 71.5 460z" fill="#1572B6"/>
+              <path d="M256 461l154-43 33-370H256v413z" fill="#33A9DC"/>
+              <path d="M256 176h-84l6 64h78v60h-78l6 64 72 20v64l-128-36-16-176-6-64h156v64zm0 0h84l-6 64h-78v-64zm0 124h78l-8 88-70 20v64l128-36 18-200 6-64H256v128z" fill="#EBEBEB"/>
+              <path d="M256 176v64h78l-6 64h-72v-64h72l-8 88-64 18v64l128-36 18-200 6-64H256z" fill="#FFFFFF"/>
+            </svg>
+          )
+        },
+        {
+          name: 'JavaScript',
+          category: 'Programming',
+          desc: 'ES6+ syntax, DOM manipulation, async flow, and events.',
+          icon: (
+            <svg className="w-10 h-10" viewBox="0 0 630 630">
+              <rect width="630" height="630" fill="#F7DF1E"/>
+              <path d="m423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.4-38.1-25.4-17.3 0-28.3 11-28.3 25.4 0 17.7 11 25 35.5 35.5l14.8 6.34c50.3 21.6 79.5 43.6 79.5 93 0 53.3-41.9 84.6-95.6 84.6-53.7 0-87.5-25.4-105.3-60.9zm-209.98 5.5c8.9 15.65 17.3 28.8 36.8 28.8 18.6 0 30.4-7.6 30.4-37.2v-218.33h58.37v219.17c0 59.2-34.68 86.3-84.58 86.3-45.7 0-72.3-24.1-84.99-53.7z"/>
+            </svg>
+          )
+        },
+        {
+          name: 'React',
+          category: 'UI Library',
+          desc: 'Component architecture, hooks (useState, useEffect), and JSX.',
+          icon: (
+            <svg className="w-10 h-10" viewBox="-11.5 -10.23174 23 20.46348">
+              <circle cx="0" cy="0" r="2.05" fill="#61DAFB"/>
+              <g stroke="#61DAFB" strokeWidth="1" fill="none">
+                <ellipse rx="11" ry="4.2"/>
+                <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+                <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+              </g>
+            </svg>
+          )
+        },
+        {
+          name: 'Tailwind CSS',
+          category: 'Utility Styling',
+          desc: 'Rapid responsive styling, utility classes, and custom tokens.',
+          icon: (
+            <svg className="w-10 h-10" viewBox="0 0 24 24" fill="#38BDF8">
+              <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/>
+            </svg>
+          )
+        },
+        {
+          name: 'Git',
+          category: 'Version Control',
+          desc: 'Branching, clean commit hygiene, and repository tracking.',
+          icon: (
+            <svg className="w-10 h-10" viewBox="0 0 24 24" fill="#F05032">
+              <path d="M2.6 10.59L8.38 4.8a1.37 1.37 0 0 1 1.94 0l1.37 1.37-2.46 2.46a2.05 2.05 0 0 0-.6 2.05L6.68 12.63a2.05 2.05 0 1 0 1.45 1.45l1.9-1.9a2.05 2.05 0 0 0 1.25.12l2.36 2.36a2.05 2.05 0 1 0 1.45-1.45l-2.38-2.38a2.05 2.05 0 0 0-.15-1.3l2.45-2.45 6.44 6.44a1.37 1.37 0 0 1 0 1.94l-8.48 8.48a1.37 1.37 0 0 1-1.94 0L2.6 12.53a1.37 1.37 0 0 1 0-1.94z"/>
+            </svg>
+          )
+        },
+        {
+          name: 'GitHub',
+          category: 'Collaboration',
+          desc: 'Remote hosting, open source portfolios, and project releases.',
+          icon: (
+            <svg className="w-10 h-10" viewBox="0 0 24 24" fill="#181717">
+              <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+            </svg>
+          )
+        }
+      ];
+
+      return (
+        <section id="skills" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10 border-t border-slate-200/80">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200 px-3.5 py-1 rounded-full">
+              Tech Stack &amp; Tools
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 uppercase mt-3">
+              SKILLS &amp; TECHNOLOGIES
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4 rounded-full" />
+            <p className="mt-3 text-sm sm:text-base text-slate-600 font-normal">
+              Authentic tools and languages practiced in daily coding and web projects.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {coreSkills.map((skill) => (
+              <div
+                key={skill.name}
+                className="group relative p-6 rounded-2xl bg-white border border-slate-200/90 shadow-xs hover:shadow-lg hover:border-teal-400 hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center p-2 mb-4 group-hover:scale-110 group-hover:bg-teal-50/50 transition-all shadow-2xs">
+                    {skill.icon}
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
+                      {skill.name}
+                    </h3>
+                    <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                      {skill.category}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed mt-2.5">
+                    {skill.desc}
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-xs text-teal-700 font-semibold font-mono">
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-500" />
+                  <span>Practical Application</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      );
+    }
+
+    // --- 6. EDUCATION & BACKGROUND (ANIMATED TIMELINE) ---
+    function EducationSection() {
+      const milestones = [
+        {
+          year: '2018',
+          degree: 'I.Com (Intermediate in Commerce)',
+          institution: 'Board of Intermediate & Secondary Education',
+          desc: 'Fundamental foundations in financial accounting, commercial geography, business economics, and mathematics.',
+          badge: 'Foundation',
+          icon: '📚'
+        },
+        {
+          year: '2020',
+          degree: 'B.Com (Bachelor of Commerce)',
+          institution: 'Commerce & Business Administration Studies',
+          desc: 'Comprehensive coursework in commercial banking, corporate auditing, mercantile law, and business accounting systems.',
+          badge: 'Undergraduate',
+          icon: '📈'
+        },
+        {
+          year: '2022',
+          degree: 'M.Com (Master of Commerce)',
+          institution: 'Advanced Commerce Studies',
+          desc: 'Advanced financial accounting, managerial economics, organizational strategy, and corporate business reporting.',
+          badge: 'Graduate',
+          icon: '🎓'
+        },
+        {
+          year: '2025',
+          degree: 'MBA in Finance (Master of Business Administration)',
+          institution: 'University of Agriculture, Faisalabad (UAF)',
+          desc: 'Corporate finance, strategic investment valuation, financial modeling, and quantitative decision systems.',
+          badge: 'Postgraduate • Culmination',
+          highlight: true,
+          icon: '🏆'
+        }
+      ];
+
+      return (
+        <section id="education" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10 border-t border-slate-200/80">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200 px-3.5 py-1 rounded-full">
+              Academic Journey
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 uppercase mt-3">
+              EDUCATION &amp; BACKGROUND
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4 rounded-full" />
+            <p className="mt-3 text-sm sm:text-base text-slate-600 font-normal">
+              Chronological academic progression building strong analytical and financial acumen.
+            </p>
+          </div>
+
+          {/* Connected Chronological Timeline */}
+          <div className="relative max-w-4xl mx-auto">
+            {/* Center Timeline Spine */}
+            <div className="hidden md:block absolute left-1/2 top-8 bottom-8 w-1 timeline-line -translate-x-1/2 rounded-full opacity-60" />
+            
+            {/* Mobile Left Timeline Spine */}
+            <div className="md:hidden absolute left-6 top-6 bottom-6 w-1 timeline-line rounded-full opacity-60" />
+
+            <div className="space-y-8 md:space-y-12">
+              {milestones.map((item, idx) => {
+                const isEven = idx % 2 === 0;
+                return (
+                  <div key={item.year} className="relative flex flex-col md:flex-row items-center group">
+                    {/* Left side card (for even index on desktop) */}
+                    <div className={'w-full md:w-1/2 ' + (isEven ? 'md:pr-12 md:text-right' : 'md:order-2 md:pl-12 md:text-left') + ' pl-14 md:pl-0'}>
+                      <div className={'p-6 sm:p-7 rounded-2xl bg-white border ' + (item.highlight ? 'border-teal-400 shadow-md ring-2 ring-teal-500/10' : 'border-slate-200/90 shadow-xs') + ' hover:shadow-xl hover:border-teal-500 transition-all duration-300 hover:-translate-y-1'}>
+                        <div className={'flex flex-wrap items-center gap-2 mb-2 ' + (isEven ? 'md:justify-end' : 'md:justify-start')}>
+                          <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-teal-50 text-teal-700 border border-teal-200">
+                            {item.year}
+                          </span>
+                          <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-500">
+                            {item.badge}
+                          </span>
+                        </div>
+                        <h3 className="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors">
+                          {item.degree}
+                        </h3>
+                        <p className="text-xs sm:text-sm font-semibold text-teal-600 mt-0.5">
+                          {item.institution}
+                        </p>
+                        <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Timeline Node Icon (Center on desktop, Left on mobile) */}
+                    <div className="absolute left-6 md:left-1/2 top-6 md:top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-2 border-teal-500 shadow-md flex items-center justify-center text-sm z-20 group-hover:scale-125 group-hover:bg-teal-50 transition-all">
+                      <span>{item.icon}</span>
+                    </div>
+
+                    {/* Empty placeholder for opposite side on desktop */}
+                    <div className={'hidden md:block w-1/2 ' + (isEven ? 'order-2 pl-12' : 'pr-12')} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // --- 7. EXPERIENCE (DEDICATED WORKPLACE SECTION WITH 3D HR BADGE) ---
+    function ExperienceSection() {
+      return (
+        <section id="experience" className="relative py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto select-none z-10 border-t border-slate-200/80">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-700 bg-teal-50 border border-teal-200 px-3.5 py-1 rounded-full">
+              Workplace Exposure
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-slate-900 uppercase mt-3">
+              WORKPLACE EXPERIENCE
+            </h2>
+            <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4 rounded-full" />
+            <p className="mt-3 text-sm sm:text-base text-slate-600 font-normal">
+              Corporate internship experience managing operations, attendance, and employee documentation.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="rounded-3xl bg-white border border-slate-200/90 p-8 sm:p-10 shadow-sm hover:shadow-xl hover:border-teal-400 transition-all duration-300">
+              
+              {/* Card Header with HR Corporate 3D Avatar Badge */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-6 border-b border-slate-100">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                  
+                  {/* HR Corporate Lanyard ID Badge Presentation */}
+                  <div className="relative shrink-0 animate-badge-sway group cursor-default">
+                    {/* Metallic Lanyard Clip Slot */}
+                    <div className="w-8 h-2 rounded-full bg-slate-300 border border-slate-400 mx-auto -mb-1 relative z-20 shadow-2xs" />
+                    
+                    {/* Subtle ambient soft halo */}
+                    <div className="absolute -inset-1 bg-gradient-to-tr from-teal-500/20 via-cyan-400/20 to-emerald-400/20 rounded-2xl blur-xs opacity-75" />
+                    
+                    {/* The Badge Frame */}
+                    <div className="relative w-20 h-24 sm:w-24 sm:h-28 rounded-2xl p-1 bg-gradient-to-b from-teal-500 via-cyan-500 to-emerald-600 shadow-md flex flex-col items-center justify-between overflow-hidden">
+                      <div className="w-full h-full rounded-[12px] bg-gradient-to-b from-white to-slate-50 flex flex-col items-center justify-between p-1 relative overflow-hidden">
+                        
+                        {/* Security Chip & Company Header */}
+                        <div className="w-full flex items-center justify-between px-1 pt-0.5">
+                          <span className="w-2.5 h-1.5 rounded-xs bg-amber-400 border border-amber-500 block" title="Corporate Chip" />
+                          <span className="text-[7.5px] font-mono font-bold text-slate-400 uppercase tracking-tighter">ALHAMRAH</span>
+                        </div>
+
+                        {/* 3D Female Avatar (Exact Same Face & Identity from Hero) */}
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center my-auto">
+                          <img
+                            src="images/ui/female-developer-3d-hero-transparent.png"
+                            alt="Hafsa Naeem - HR Intern"
+                            className="w-full h-full object-contain drop-shadow-xs transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </div>
+
+                        {/* Corporate ID Bottom Ribbon */}
+                        <div className="w-full bg-teal-800 text-white text-[8px] font-mono font-extrabold uppercase py-0.5 text-center rounded-sm tracking-tight">
+                          HR INTERN
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Small Live Verified Dot */}
+                    <span className="absolute -bottom-1 -right-1 flex h-3 w-3 z-20">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border border-white"></span>
+                    </span>
+                  </div>
+
+                  {/* Title and Metadata */}
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-teal-700 border border-teal-200 text-xs font-mono font-bold uppercase mb-2">
+                      <span className="w-2 h-2 rounded-full bg-teal-500" />
+                      <span>3 Months Internship (2024)</span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
+                      HR Intern — Human Resources Operations
+                    </h3>
+                    <p className="text-sm font-semibold text-teal-700 mt-1 flex items-center gap-1.5">
+                      <svg className="w-4 h-4 text-teal-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                      </svg>
+                      Alhamrah Fabrics • Faisalabad, Pakistan
+                    </p>
+                  </div>
+                </div>
+
+                <div className="shrink-0 sm:self-start">
+                  <span className="px-4 py-2 rounded-xl bg-slate-50 text-slate-700 font-mono text-xs font-bold border border-slate-200 flex items-center gap-1.5 shadow-2xs">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    Verified Internship
+                  </span>
+                </div>
+              </div>
+
+              {/* Responsibilities List: Exact verified points */}
+              <div className="mt-6 space-y-4">
+                <h4 className="text-xs font-mono uppercase font-bold text-slate-400 tracking-wider">
+                  Core Responsibilities &amp; Contributions:
+                </h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 hover:border-teal-200 transition-colors">
+                    <div className="text-teal-600 text-lg mb-2 font-bold font-mono">01.</div>
+                    <h5 className="font-bold text-slate-900 text-sm mb-1.5">Recruitment Support</h5>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Assisted in candidate document verification, initial applicant screening schedules, and interview coordination.
+                    </p>
+                  </div>
+
+                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 hover:border-teal-200 transition-colors">
+                    <div className="text-teal-600 text-lg mb-2 font-bold font-mono">02.</div>
+                    <h5 className="font-bold text-slate-900 text-sm mb-1.5">Employee Records</h5>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Maintained structured confidential employee documentation and updated digital personnel archives with strict data hygiene.
+                    </p>
+                  </div>
+
+                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-100 hover:border-teal-200 transition-colors">
+                    <div className="text-teal-600 text-lg mb-2 font-bold font-mono">03.</div>
+                    <h5 className="font-bold text-slate-900 text-sm mb-1.5">Attendance Management</h5>
+                    <p className="text-xs text-slate-600 leading-relaxed">
+                      Monitored biometric clock-in logs, calculated monthly attendance records, and reconciled shift times with high accuracy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Key Skills Gained */}
+              <div className="mt-6 pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-500 font-mono">
+                <div className="flex flex-wrap gap-2">
+                  {['Corporate Workplace Discipline', 'Stakeholder Communication', 'Operational Accuracy'].map((s) => (
+                    <span key={s} className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 font-semibold">
+                      ✓ {s}
+                    </span>
+                  ))}
+                </div>
+                <span className="text-teal-600 font-bold">Alhamrah Fabrics HR Dept</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+    // --- 8. CONTACT SECTION (PRESERVED & REFINED LIGHT DESIGN) ---
     function ContactSection({ onOpenResume }) {
       return (
-        <section id="contact" className="relative w-full bg-gradient-to-b from-[#F8FAFC] via-white to-slate-100/90 dark:from-[#080D1A] dark:via-[#0B132B] dark:to-[#050811] text-slate-900 dark:text-white pt-24 pb-16 px-4 sm:px-8 lg:px-16 select-none z-10 border-t border-slate-200/90 dark:border-slate-800/80 overflow-hidden">
-          {/* Subtle Ambient Decorative Glows */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-teal-400/10 dark:bg-teal-500/10 rounded-full blur-3xl pointer-events-none -z-0" />
-          <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-cyan-400/10 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-0" />
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-emerald-400/10 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -z-0" />
-
+        <section id="contact" className="relative w-full bg-gradient-to-b from-[#F8FAFC] via-white to-slate-100/90 text-slate-900 pt-20 pb-16 px-4 sm:px-8 lg:px-16 select-none z-10 border-t border-slate-200/90 overflow-hidden">
           <div className="max-w-6xl mx-auto relative z-10">
-            {/* Consistently Centered Heading Across All Devices */}
-            <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 text-teal-700 dark:text-teal-400 border border-teal-500/20 text-xs font-mono font-semibold tracking-wider uppercase mb-4 shadow-2xs">
+            {/* Centered Heading */}
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 text-teal-700 border border-teal-500/20 text-xs font-mono font-semibold tracking-wider uppercase mb-3 shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse" />
-                <span>Available for Career & Project Opportunities</span>
+                <span>Available for Career &amp; Project Opportunities</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white uppercase font-sans">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 uppercase font-sans">
                 CONTACT
               </h2>
               <div className="w-16 h-1 bg-gradient-to-r from-teal-500 to-cyan-500 mx-auto mt-4 rounded-full" />
-              <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-normal">
+              <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-xl mx-auto font-normal">
                 Looking for a dedicated professional or want to discuss an upcoming web project? Connect with me directly through any of the channels below.
               </p>
             </div>
@@ -1054,9 +1108,9 @@
             {/* 4 Interactive Contact Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               {/* Card 1: Email */}
-              <div className="group relative rounded-2xl p-6 bg-white dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 shadow-xs hover:shadow-xl hover:border-teal-400 dark:hover:border-teal-500/70 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+              <div className="group relative rounded-2xl p-6 bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-teal-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
                 <div>
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-teal-50 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 group-hover:scale-110 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300 shadow-2xs mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-teal-50 text-teal-600 group-hover:scale-110 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300 shadow-2xs mb-4">
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
@@ -1065,28 +1119,28 @@
                     Email Address
                   </span>
                   <a
-                    href="mailto:Hfsanaeem3@gmail.com"
-                    className="text-base font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors break-all"
+                    href="mailto:hfsanaeem3@gmail.com"
+                    className="text-base font-bold text-slate-900 hover:text-teal-600 transition-colors break-all"
                   >
-                    Hfsanaeem3@gmail.com
+                    hfsanaeem3@gmail.com
                   </a>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                  <p className="text-xs text-slate-500 mt-2">
                     Direct personal &amp; professional inbox
                   </p>
                 </div>
                 <a
-                  href="mailto:Hfsanaeem3@gmail.com"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 dark:text-teal-400 group-hover:text-teal-700 dark:group-hover:text-teal-300 mt-5 pt-3 border-t border-slate-100 dark:border-slate-700/60"
+                  href="mailto:hfsanaeem3@gmail.com"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-teal-600 group-hover:text-teal-700 mt-5 pt-3 border-t border-slate-100"
                 >
                   <span>Send Email</span>
-                  <span className="text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                  <span className="text-xs">↗</span>
                 </a>
               </div>
 
               {/* Card 2: Phone */}
-              <div className="group relative rounded-2xl p-6 bg-white dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 shadow-xs hover:shadow-xl hover:border-teal-400 dark:hover:border-teal-500/70 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+              <div className="group relative rounded-2xl p-6 bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-teal-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
                 <div>
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-cyan-50 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300 shadow-2xs mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-cyan-50 text-cyan-600 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300 shadow-2xs mb-4">
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
@@ -1096,27 +1150,27 @@
                   </span>
                   <a
                     href="tel:+923358006845"
-                    className="text-base font-bold font-mono text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                    className="text-base font-bold font-mono text-slate-900 hover:text-teal-600 transition-colors"
                   >
                     +92-335-8006845
                   </a>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                  <p className="text-xs text-slate-500 mt-2">
                     Voice calls &amp; WhatsApp messaging
                   </p>
                 </div>
                 <a
                   href="tel:+923358006845"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 dark:text-cyan-400 group-hover:text-cyan-700 dark:group-hover:text-cyan-300 mt-5 pt-3 border-t border-slate-100 dark:border-slate-700/60"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-cyan-600 group-hover:text-cyan-700 mt-5 pt-3 border-t border-slate-100"
                 >
                   <span>Call Directly</span>
-                  <span className="text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                  <span className="text-xs">↗</span>
                 </a>
               </div>
 
               {/* Card 3: Location */}
-              <div className="group relative rounded-2xl p-6 bg-white dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 shadow-xs hover:shadow-xl hover:border-teal-400 dark:hover:border-teal-500/70 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+              <div className="group relative rounded-2xl p-6 bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-teal-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
                 <div>
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 shadow-2xs mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-emerald-50 text-emerald-600 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300 shadow-2xs mb-4">
                     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -1125,23 +1179,23 @@
                   <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block mb-1">
                     Location
                   </span>
-                  <p className="text-base font-bold text-slate-900 dark:text-white">
+                  <p className="text-base font-bold text-slate-900">
                     Faisalabad, Pakistan
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                  <p className="text-xs text-slate-500 mt-2">
                     Open to remote, hybrid &amp; relocation
                   </p>
                 </div>
-                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 dark:text-emerald-400 mt-5 pt-3 border-t border-slate-100 dark:border-slate-700/60">
+                <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-600 mt-5 pt-3 border-t border-slate-100">
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
                   <span>Remote Ready</span>
                 </div>
               </div>
 
               {/* Card 4: GitHub */}
-              <div className="group relative rounded-2xl p-6 bg-white dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/80 shadow-xs hover:shadow-xl hover:border-teal-400 dark:hover:border-teal-500/70 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+              <div className="group relative rounded-2xl p-6 bg-white border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-teal-400 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
                 <div>
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-slate-700/50 text-slate-800 dark:text-slate-200 group-hover:scale-110 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300 shadow-2xs mb-4">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-slate-100 text-slate-800 group-hover:scale-110 group-hover:bg-slate-900 group-hover:text-white transition-all duration-300 shadow-2xs mb-4">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                       <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                     </svg>
@@ -1153,11 +1207,11 @@
                     href="https://github.com/Hafsa121-naeem"
                     target="_blank"
                     rel="noreferrer"
-                    className="text-base font-bold text-slate-900 dark:text-white hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                    className="text-base font-bold text-slate-900 hover:text-teal-600 transition-colors"
                   >
                     Hafsa121-naeem
                   </a>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                  <p className="text-xs text-slate-500 mt-2">
                     Public frontend code &amp; React projects
                   </p>
                 </div>
@@ -1165,39 +1219,54 @@
                   href="https://github.com/Hafsa121-naeem"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 group-hover:text-teal-600 dark:group-hover:text-teal-400 mt-5 pt-3 border-t border-slate-100 dark:border-slate-700/60"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-700 hover:text-teal-600 mt-5 pt-3 border-t border-slate-100"
                 >
                   <span>Explore GitHub</span>
-                  <span className="text-xs group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+                  <span className="text-xs">↗</span>
                 </a>
               </div>
             </div>
 
-            {/* High-Convert Interactive CTA Banner */}
-            <div className="relative rounded-3xl bg-gradient-to-br from-teal-500/10 via-cyan-500/5 to-white/80 dark:from-teal-950/40 dark:via-slate-800/70 dark:to-slate-900/50 border border-teal-200/80 dark:border-teal-500/30 p-8 sm:p-10 shadow-lg backdrop-blur-md flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
-              <div className="space-y-2 text-center md:text-left">
-                <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-600 dark:text-teal-400">
-                  Let's Work Together
-                </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-                  Ready to Start a Project or Collaboration?
-                </h3>
-                <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl">
-                  Whether you have an open position in software engineering, require responsive web architecture, or want to review my code, I look forward to hearing from you.
-                </p>
+            {/* High-Convert Interactive CTA Banner with Consistent 3D Avatar */}
+            <div className="relative rounded-3xl bg-gradient-to-br from-teal-500/10 via-cyan-500/5 to-white border border-teal-200/80 p-8 sm:p-10 shadow-lg flex flex-col md:flex-row items-center justify-between gap-6 mb-16">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+                <div className="relative shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-teal-500/20 via-cyan-400/20 to-teal-600/10 p-1 border border-teal-200/80 shadow-md">
+                  <div className="w-full h-full rounded-[14px] bg-white flex items-center justify-center overflow-hidden">
+                    <img
+                      src="images/ui/female-developer-3d-hero-transparent.png"
+                      alt="Hafsa Naeem"
+                      className="w-full h-full object-contain drop-shadow-xs"
+                    />
+                  </div>
+                  <span className="absolute -bottom-1 -right-1 flex h-3.5 w-3.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 border-2 border-white"></span>
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-600 block">
+                    Let's Work Together
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                    Ready to Start a Project or Collaboration?
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-600 max-w-xl">
+                    Whether you have an open position in software engineering, require responsive web architecture, or want to review my code, I look forward to hearing from you.
+                  </p>
+                </div>
               </div>
 
               <div className="flex flex-wrap items-center justify-center gap-4 shrink-0">
                 <a
-                  href="mailto:Hfsanaeem3@gmail.com"
-                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-semibold text-sm shadow-md shadow-teal-500/25 hover:shadow-lg hover:shadow-teal-500/35 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 group"
+                  href="mailto:hfsanaeem3@gmail.com"
+                  className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-semibold text-sm shadow-md shadow-teal-500/25 hover:shadow-lg transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 group"
                 >
                   <span>Send a Message</span>
                   <span className="transform group-hover:translate-x-0.5 transition-transform">✉️</span>
                 </a>
                 <button
                   onClick={onOpenResume}
-                  className="px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-white font-semibold text-sm border border-slate-300 dark:border-slate-700 hover:border-teal-500 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 shadow-2xs"
+                  className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 hover:border-teal-500 transition-all duration-300 hover:scale-105 inline-flex items-center gap-2 shadow-2xs"
                 >
                   <span>View Resume</span>
                   <span>📄</span>
@@ -1206,23 +1275,23 @@
             </div>
 
             {/* Bottom Footer Bar */}
-            <div className="pt-8 border-t border-slate-200/90 dark:border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <div className="pt-8 border-t border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
               <div className="flex items-center gap-2.5">
-                <span className="w-7 h-7 rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400 font-bold flex items-center justify-center font-mono border border-teal-500/20 text-xs">
+                <span className="w-7 h-7 rounded-lg bg-teal-500/10 text-teal-600 font-bold flex items-center justify-center font-mono border border-teal-500/20 text-xs">
                   HN
                 </span>
-                <span className="font-semibold text-slate-800 dark:text-slate-200">Hafsa Naeem</span>
+                <span className="font-semibold text-slate-800">Hafsa Naeem</span>
                 <span>•</span>
                 <span>Aspiring IT Professional</span>
               </div>
               <div className="text-center font-medium">
-                Designed &amp; Developed with precision by <span className="text-teal-600 dark:text-teal-400 font-bold">Hafsa Naeem</span>
+                Designed &amp; Developed with precision by <span className="text-teal-600 font-bold">Hafsa Naeem</span>
               </div>
               <div className="flex items-center gap-4">
                 <span>© 2026 All Rights Reserved</span>
                 <button
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                  className="hover:text-teal-600 dark:hover:text-teal-400 transition-colors p-1 font-mono font-semibold"
+                  className="hover:text-teal-600 transition-colors p-1 font-mono font-semibold"
                   title="Back to Top"
                 >
                   ↑ Top
@@ -1240,63 +1309,72 @@
 
       return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in select-none">
-          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-slate-200 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-600 dark:text-slate-300 flex items-center justify-center font-bold text-sm transition-transform hover:rotate-90"
+              className="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm transition-transform hover:rotate-90"
             >
               ✕
             </button>
 
-            <div className="border-b border-slate-100 dark:border-slate-800 pb-6 mb-6">
-              <h3 className="text-2xl font-black text-slate-900 dark:text-white uppercase">Hafsa Naeem</h3>
-              <p className="text-sm font-mono text-teal-600 dark:text-teal-400 font-semibold mt-1">Aspiring IT Professional & Frontend Developer</p>
-              <div className="flex flex-wrap gap-4 mt-3 text-xs text-slate-500 dark:text-slate-400 font-mono">
-                <span>📍 Faisalabad, PK</span>
-                <span>✉️ Hfsanaeem3@gmail.com</span>
-                <span>📞 +92-335-8006845</span>
-                <span>🔗 github.com/Hafsa121-naeem</span>
+            <div className="border-b border-slate-100 pb-6 mb-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <div className="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-tr from-teal-500/20 via-cyan-400/20 to-teal-600/10 p-0.5 border border-teal-200/80 shadow-sm flex items-center justify-center overflow-hidden">
+                <img
+                  src="images/ui/female-developer-3d-hero-transparent.png"
+                  alt="Hafsa Naeem"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-black text-slate-900 uppercase">Hafsa Naeem</h3>
+                <p className="text-sm font-mono text-teal-600 font-semibold mt-0.5">Aspiring IT Professional &amp; Frontend Developer</p>
+                <div className="flex flex-wrap gap-4 mt-2 text-xs text-slate-500 font-mono">
+                  <span>📍 Faisalabad, PK</span>
+                  <span>✉️ hfsanaeem3@gmail.com</span>
+                  <span>📞 +92-335-8006845</span>
+                  <span>🔗 github.com/Hafsa121-naeem</span>
+                </div>
               </div>
             </div>
 
             <div className="space-y-6">
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-3">Academic Qualifications</h4>
+                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-3">Academic Background</h4>
                 <div className="space-y-3">
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-bold text-slate-800 dark:text-white">MBA in Finance</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Corporate Finance, Investment Modeling & Financial Systems</p>
+                        <p className="font-bold text-slate-800">MBA in Finance</p>
+                        <p className="text-xs text-slate-500 mt-0.5">University of Agriculture, Faisalabad (UAF) • Financial Modeling &amp; Strategy</p>
                       </div>
-                      <span className="text-xs font-mono font-bold text-teal-600 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full">2025</span>
+                      <span className="text-xs font-mono font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full">2025</span>
                     </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-bold text-slate-800 dark:text-white">M.Com (Master of Commerce)</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Advanced Accounting, Managerial Economics & Commerce</p>
+                        <p className="font-bold text-slate-800">M.Com (Master of Commerce)</p>
+                        <p className="text-xs text-slate-500 mt-0.5">Advanced Accounting, Managerial Economics &amp; Corporate Commerce</p>
                       </div>
-                      <span className="text-xs font-mono font-bold text-teal-600 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full">2022</span>
+                      <span className="text-xs font-mono font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full">2022</span>
                     </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-bold text-slate-800 dark:text-white">B.Com (Bachelor of Commerce)</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Banking, Financial Principles & Auditing</p>
+                        <p className="font-bold text-slate-800">B.Com (Bachelor of Commerce)</p>
+                        <p className="text-xs text-slate-500 mt-0.5">Commercial Banking, Auditing &amp; Financial Accounting Systems</p>
                       </div>
-                      <span className="text-xs font-mono font-bold text-teal-600 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full">2020</span>
+                      <span className="text-xs font-mono font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full">2020</span>
                     </div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
                     <div className="flex justify-between items-start">
                       <div>
-                        <p className="font-bold text-slate-800 dark:text-white">I.Com (Intermediate in Commerce)</p>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Principles of Accounting, Economics & Business Math</p>
+                        <p className="font-bold text-slate-800">I.Com (Intermediate in Commerce)</p>
+                        <p className="text-xs text-slate-500 mt-0.5">Accounting Principles, Economics &amp; Commercial Mathematics</p>
                       </div>
-                      <span className="text-xs font-mono font-bold text-teal-600 bg-teal-50 dark:bg-teal-950 px-2.5 py-1 rounded-full">2018</span>
+                      <span className="text-xs font-mono font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-full">2018</span>
                     </div>
                   </div>
                 </div>
@@ -1304,36 +1382,36 @@
 
               <div>
                 <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-3">Workplace Experience</h4>
-                <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
-                  <div className="flex justify-between items-start mb-2">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="flex justify-between items-start">
                     <div>
-                      <p className="font-bold text-slate-800 dark:text-white">HR Operations Intern</p>
-                      <p className="text-xs text-teal-600 font-semibold">Alhamrah Fabrics | Faisalabad, PK</p>
+                      <p className="font-bold text-slate-800">HR Intern</p>
+                      <p className="text-xs text-teal-700 font-semibold">Alhamrah Fabrics • Faisalabad</p>
+                      <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">
+                        Assisted with recruitment coordination, maintained confidential employee personnel archives, and managed biometric attendance logs with operational precision.
+                      </p>
                     </div>
-                    <span className="text-xs font-mono text-slate-400">3 Months (2024)</span>
+                    <span className="text-xs font-mono font-bold text-slate-600 bg-slate-200 px-2.5 py-1 rounded-full">3 Mos (2024)</span>
                   </div>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Managed biometric attendance tracking, organized confidential personnel documentation, and coordinated corporate hiring schedules.
-                  </p>
                 </div>
               </div>
 
               <div>
-                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-3">Core Technical Skills</h4>
+                <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 font-bold mb-3">Technical Capabilities</h4>
                 <div className="flex flex-wrap gap-2">
-                  {['React 18', 'JavaScript (ES6+)', 'Tailwind CSS', 'HTML5 Semantic', 'CSS3 Architecture', 'Responsive Web Design', 'Git & GitHub', 'RESTful APIs'].map((skill) => (
-                    <span key={skill} className="px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
-                      {skill}
+                  {['React 18', 'JavaScript (ES6+)', 'HTML5', 'CSS3', 'Tailwind CSS', 'Git & GitHub', 'Component Architecture', 'Financial Analysis'].map((tech) => (
+                    <span key={tech} className="text-xs font-semibold px-3 py-1 rounded-full bg-slate-100 text-slate-800 border border-slate-200">
+                      {tech}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+            <div className="mt-8 pt-6 border-t border-slate-100 flex justify-end">
               <button
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-full text-xs font-mono font-bold text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 transition-all"
+                className="px-6 py-2.5 rounded-full text-xs font-mono font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-all"
               >
                 Close Window
               </button>
@@ -1349,24 +1427,25 @@
 
       return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in select-none">
-          <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-3xl w-full p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 border border-slate-200 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-600 dark:text-slate-300 flex items-center justify-center font-bold text-sm transition-transform hover:rotate-90"
+              className="absolute top-6 right-6 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm transition-transform hover:rotate-90"
             >
               ✕
             </button>
 
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-600 bg-teal-50 dark:bg-teal-950 px-3 py-1 rounded-full">
-              Production Project
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
+              Simulated Practice Project
             </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mt-4 mb-2">
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-4 mb-2">
               NexDrive — USB Flash Storage Solutions
             </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              A comprehensive corporate web catalog and commercial profile designed and engineered for modern hardware representation. Features interactive product catalogs, real-time benchmark showcases, custom laser branding previews, and responsive CSS.
+            <p className="text-sm text-slate-600 leading-relaxed mb-4">
+              A comprehensive corporate web catalog and commercial profile designed and engineered as a self-directed practice project. Features interactive product catalogs, real-time benchmark showcases, custom laser branding previews, and responsive CSS.
             </p>
-            <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/80 mb-6 shadow-xs">
+
+            <div className="rounded-2xl overflow-hidden border border-slate-200 mb-6 shadow-xs">
               <img
                 src="images/projects/usb/nexdrive-homepage-showcase.svg"
                 alt="NexDrive USB Flash Storage Homepage Showcase"
@@ -1375,9 +1454,9 @@
             </div>
 
             <div className="space-y-4 mb-8">
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60">
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100">
                 <p className="text-xs font-mono uppercase font-bold text-slate-400 mb-1">Architecture Highlights</p>
-                <ul className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-1.5 list-disc list-inside">
+                <ul className="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc list-inside">
                   <li>Component-driven interface using React 18 and Tailwind CSS utility architecture.</li>
                   <li>Responsive layout engine tested across mobile, tablet, and high-resolution desktop viewports.</li>
                   <li>Clean code separation with daily Git commits and GitHub repository hosting.</li>
@@ -1385,12 +1464,12 @@
               </div>
             </div>
 
-            <div className="flex justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+            <div className="flex justify-end gap-3 pt-4 border-t border-slate-100">
               <a
-                href="https://github.com/Hafsa121-naeem"
+                href="https://github.com/Hafsa121-naeem/Hafsa121-naeem.github.io"
                 target="_blank"
                 rel="noreferrer"
-                className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 transition-colors"
+                className="px-5 py-2.5 rounded-xl text-xs font-mono font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors"
               >
                 GitHub Repository ↗
               </a>
@@ -1406,45 +1485,54 @@
       );
     }
 
-    // --- APP CONTAINER ---
+    // --- MAIN APP COMPONENT (STRICT SECTION ORDER: HERO -> WORK -> WHAT I DO -> ABOUT -> SKILLS -> EDUCATION -> EXPERIENCE -> CONTACT) ---
     function App() {
       const [resumeModalOpen, setResumeModalOpen] = useState(false);
       const [projectModalOpen, setProjectModalOpen] = useState(false);
-      const [darkMode, setDarkMode] = useState(false);
 
       useEffect(() => {
         document.title = "Hafsa Naeem | Personal Portfolio";
       }, []);
 
-      useEffect(() => {
-        if (darkMode) {
-          document.documentElement.classList.add('dark');
-        } else {
-          document.documentElement.classList.remove('dark');
-        }
-      }, [darkMode]);
-
       return (
-        <div className={'min-h-screen transition-colors duration-500 selection:bg-teal-600 selection:text-white relative ' + (darkMode ? 'bg-[#030712] text-slate-100' : 'bg-[#F8FAFC] text-slate-900')}>
-          <InteractiveAiBackground darkMode={darkMode} />
-          <CustomCursor />
+        <div className="min-h-screen bg-[#F8FAFC] text-slate-900 relative">
+          <AmbientBackground />
+          
           <PortfolioNavbar
             onOpenResume={() => setResumeModalOpen(true)}
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
           />
+          
           <main className="relative z-10">
-            <WhozaryabLightHero onOpenResume={() => setResumeModalOpen(true)} darkMode={darkMode} />
-            <AboutMeSection onOpenResume={() => setResumeModalOpen(true)} darkMode={darkMode} />
-            <WhatIDoSection />
-            <CareerSection darkMode={darkMode} />
+            {/* 1. Hero Section */}
+            <HeroSection onOpenResume={() => setResumeModalOpen(true)} />
+
+            {/* 2. Featured Work / Projects (Moved to 2nd per Instructor Feedback) */}
             <WorkSection onOpenProjectModal={() => setProjectModalOpen(true)} />
+
+            {/* 3. What I Do (Heading on ONE line) */}
+            <WhatIDoSection />
+
+            {/* 4. About Me (Shortened, punchy, bolded) */}
+            <AboutMeSection onOpenResume={() => setResumeModalOpen(true)} />
+
+            {/* 5. Skills & Tech Stack (Real authentic technology logos) */}
+            <SkillsSection />
+
+            {/* 6. Education & Background (Animated connected timeline) */}
+            <EducationSection />
+
+            {/* 7. Experience (Dedicated workplace section for Alhamrah Fabrics HR Intern) */}
+            <ExperienceSection />
+
+            {/* 8. Contact Section (Light-mode 4-card grid + CTA banner) */}
             <ContactSection onOpenResume={() => setResumeModalOpen(true)} />
           </main>
+
           <ResumeModal
             isOpen={resumeModalOpen}
             onClose={() => setResumeModalOpen(false)}
           />
+
           <ProjectModal
             isOpen={projectModalOpen}
             onClose={() => setProjectModalOpen(false)}
